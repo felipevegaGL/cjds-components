@@ -1,0 +1,42 @@
+@use "@cjds/colors" as colors;
+@use "@material/typography/mdc-typography";
+@use "@material/data-table/data-table";
+
+@include data-table.core-styles;
+@include data-table.theme-baseline;
+
+.colors-story {
+  color: colors.$cj-navy-1;
+}
+
+.color-group {
+  padding: 30px;
+
+  &__table {
+    width: 75%;
+  }
+}
+
+.color-title {
+  display: flex;
+  align-items: center;
+
+  &__bullet {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background-color: currentColor;
+  }
+
+  &__title {
+    color: colors.$cj-navy-1;
+  }
+}
+
+.color-item__bullet {
+  width: 30px;
+  height: 15px;
+  border-radius: 15px;
+  border: 1px solid colors.$cj-gray-dark-1;
+}

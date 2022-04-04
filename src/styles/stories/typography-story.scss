@@ -1,0 +1,11 @@
+@use "@cjds/colors" as colors;
+@use "@material/typography/mdc-typography";
+
+.typography-story {
+  color: colors.$cj-navy-1;
+
+  &__content {
+    display: flex;
+  }
+  
+}

@@ -1,0 +1,68 @@
+@use "@material/button/styles";
+@use "@material/button" as mdcButton;
+@use "@cjds/colors" as colors;
+
+@mixin setTheme(
+  $textColor,
+  $bgColor,
+  $hoverColor,
+  $disabledTextColor,
+  $disabledBgColor
+) {
+  $bgMap: (
+    "default": $bgColor,
+    "hover": $hoverColor,
+    "focus": $hoverColor,
+    "pressed": $hoverColor,
+    "disabled": $disabledBgColor,
+  );
+  $textMap: (
+    "default": $textColor,
+    "hover": $textColor,
+    "focus": $textColor,
+    "pressed": $textColor,
+    "disabled": $disabledTextColor,
+  );
+  @include mdcButton.container-fill-color($bgMap);
+  @include mdcButton.ink-color($textMap);
+}
+
+.mdc-button {
+  @include mdcButton.height(32px);
+  @include mdcButton.shape-radius(2px);
+  min-width: 100px;
+  &.primary {
+    @include setTheme(
+      colors.$cj-white,
+      colors.$cj-aqua-1,
+      colors.$cj-aqua-5,
+      colors.$cj-white,
+      colors.$cj-gray-1
+    );
+  }
+  &.secondary {
+    @include setTheme(
+      colors.$cj-white,
+      colors.$cj-navy-1,
+      colors.$cj-navy-4,
+      colors.$cj-white,
+      colors.$cj-gray-1
+    );
+  }
+  &.tertiary {
+    @include setTheme(
+      colors.$cj-navy-1,
+      colors.$cj-gray-light-3,
+      colors.$cj-gray-light-2,
+      colors.$cj-gray-1,
+      colors.$cj-gray-light-3
+    );
+  }
+
+  &__label {
+    text-transform: none;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 16px;
+  }
+}
